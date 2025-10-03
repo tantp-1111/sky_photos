@@ -1,0 +1,6 @@
+.sky-background {
+  background-image: url('/assets/skytop.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

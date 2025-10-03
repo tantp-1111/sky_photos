@@ -1,0 +1,20 @@
+<header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- ロゴ -->
+      <%= link_to root_path, class: "flex items-center" do %>
+        <h1 class="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
+          SkyPhotos
+        </h1>
+      <% end %>
+
+      <!-- ナビゲーション -->
+      <nav class="flex space-x-8">
+        <%= link_to "写真一覧", "#",
+            class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "ユーザー", "#",
+            class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+      </nav>
+    </div>
+  </div>
+</header>
