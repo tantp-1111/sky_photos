@@ -8,12 +8,18 @@
         </h1>
       <% end %>
 
-      <!-- ナビゲーション -->
+      <!-- 投稿ナビゲーション -->
       <nav class="flex space-x-8">
-        <%= link_to "写真一覧", "#",
-            class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
-        <%= link_to "ユーザー", "#",
-            class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "空を見上げる", "#",
+        class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "空投稿", "#",
+        class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "お気に入り空", "#",
+        class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "プロフィール", "#",
+        class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete },
+        class: "text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
       </nav>
     </div>
   </div>
