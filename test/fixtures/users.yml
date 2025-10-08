@@ -7,6 +7,8 @@
 one:
   name: "Test User One"
   email: "user1@example.com"
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("password", "salt") %>
+  salt: "salt"
   created_at: <%= Time.zone.now %>
   updated_at: <%= Time.zone.now %>
 # column: value
@@ -14,6 +16,8 @@ one:
 two:
   name: "Test User Two"
   email: "user2@example.com"
+  crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("password", "salt") %>
+  salt: "salt"
   created_at: <%= Time.zone.now %>
   updated_at: <%= Time.zone.now %>
 # column: value
