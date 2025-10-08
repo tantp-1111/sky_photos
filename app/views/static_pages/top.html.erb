@@ -1,11 +1,16 @@
-<div class="sky-background w-full h-screen" >
-  <div class="flex flex-col items-center justify-center h-screen">
-    <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white">
-    お空共有アプリ
+<% flash.each do |message_type, message| %>
+  <div class="<%= flash_message_class(message_type) %> p-4 mb-4 rounded-lg">
+    <%= message %>
+  </div>
+<% end %>
+
+<div style="background-image: url('<%= asset_path('skytop.png') %>'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed" class="h-screen flex flex-col items-center justify-center">
+  <div class="text-center px-4">
+    <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
+      空の写真共有
     </h1>
-  <!-- サブタイトル -->
-    <p class="text-xl md:text-1xl mb-8 font-light leading-relaxed text-white text-center">
-      ついつい撮ってしまう<br class="sm:hidden">
+    <p class="text-lg md:text-xl mb-8 font-light leading-relaxed text-white drop-shadow-md max-w-md mx-auto">
+      つい撮ってしまう<br class="sm:hidden">
       お空の写真<br class="sm:hidden">
       共有しませんか？
     </p>
