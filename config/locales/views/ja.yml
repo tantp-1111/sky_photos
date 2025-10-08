@@ -13,9 +13,9 @@ ja:
   header:
     login: ログイン
     logout: ログアウト
-    board: 空
-    board_index: 空を見上げる
-    create_board: 空投稿
+    post: 空
+    post_index: 空を見上げる
+    create_post: 空投稿
     bookmark_index: お気に入り空
     profile: プロフィール
   user_sessions:
