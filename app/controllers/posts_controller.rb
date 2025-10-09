@@ -8,8 +8,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @board = current_user.posts.build(post_params)
-    if @board.save
+    @post = current_user.posts.build(post_params)
+    if @post.save
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
