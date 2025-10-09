@@ -1,7 +1,11 @@
 
 <div id="post-id-<%= post.id %>" class="bg-white border border-gray-800 shadow-md">
   <div class="overflow-hidden">
-    <%= image_tag "place_holder.png", class: "w-full h-48 object-cover border border-gray-300" %>
+    <% if post.image.attached? %>
+      <%= image_tag post.image, class: "w-full h-48 object-cover border border-gray-300" %>
+    <% else %>
+      <%= image_tag "place_holder.png", class: "w-full h-48 object-cover border border-gray-300" %>
+    <% end %>
   </div>
   <div class="p-2 text-center">
     <h4 class="text-lg font-semibold mt-1 mb-1"><%= post.title %></h4>
