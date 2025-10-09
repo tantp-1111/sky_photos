@@ -36,3 +36,6 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  posts:
+    new:
+      title: 空投稿
