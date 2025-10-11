@@ -23,6 +23,10 @@
     / 投稿日：<%= l @post.created_at %>
   </div>
 
+  <%= render 'comments/form', comment: @comment, post: @post %>
+
+  <%= render @comments %>
+
   <!-- 戻るボタン -->
   <div class="flex justify-center mt-8">
     <%= link_to "一覧に戻る", posts_path, class: "bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition" %>

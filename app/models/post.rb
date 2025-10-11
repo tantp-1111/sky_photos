@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   validate :image_content_type
   validate :image_size
 
+  has_many :comments, dependent: :destroy
+
   # アップロード形式とサイズバリデーション
   def image_content_type
     if image.attached? && !image.content_type.in?(%w[image/jpeg image/jpg image/png])
