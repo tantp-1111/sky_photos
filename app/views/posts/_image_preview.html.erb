@@ -1,0 +1,25 @@
+<!-- Stimulusコントローラーを適用 -->
+      <div class="mb-6" data-controller="previews">
+        <%= form.label :image, "画像", class: "block text-sm font-medium text-gray-700 mb-2" %>
+        <%= form.file_field :image,
+            accept: "image/*",
+            data: {
+              previews_target: "input",
+              action: "change->previews#preview"
+            } %>
+
+        <!-- プレビュー表示エリア -->
+        <div data-previews-target="preview" class="mt-4 hidden">
+          <div class="relative inline-block">
+            <img data-previews-target="image"
+                 src=""
+                 alt="プレビュー画像"
+                 class="max-w-full h-auto rounded-lg shadow-md max-h-64">
+            <button type="button"
+                    data-action="click->previews#removeImage"
+                    class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-red-600">
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
