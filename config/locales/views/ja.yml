@@ -40,4 +40,6 @@ ja:
       failure: ユーザー登録に失敗しました
   posts:
     new:
-      title: 空投稿
+      title: 空を新規作成
+    show:
+      title: 空の詳細
