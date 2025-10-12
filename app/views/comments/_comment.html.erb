@@ -1,19 +1,15 @@
-<tr id="comment-<%= comment.id %>" class="border-b">
-  <td>
-    <h3 class="text-sm font-semibold text-gray-800"><%= comment.user.name %></h3>
-    <p class="text-gray-700 whitespace-pre-line"><%= simple_format(comment.body) %></p>
-  </td>
+<div id="comment-<%= comment.id %>" class="border border-gray-300 rounded-md p-3 mb-3">
+  <h3 class="text-sm font-semibold text-gray-800"><%= comment.user.name %></h3>
+  <p class="text-gray-700 whitespace-pre-line"><%= simple_format(comment.body) %></p>
 
   <% if current_user.own?(comment) %>
-    <td class="py-3 px-4 text-right">
-      <div class="flex justify-end space-x-4">
-        <%= link_to '#', class: "text-blue-600 hover:underline" do %>
-          編集
-        <% end %>
-        <%= link_to '#', method: :delete, data: { confirm: '' }, class: "text-red-600 hover:underline" do %>
-          削除
-        <% end %>
-      </div>
-    </td>
+    <div class="flex justify-end space-x-4 mt-2">
+      <%= link_to '#', class: "text-blue-600 hover:underline" do %>
+        編集
+      <% end %>
+      <%= link_to '#', method: :delete, data: { confirm: '' }, class: "text-red-600 hover:underline" do %>
+        削除
+      <% end %>
+    </div>
   <% end %>
-</tr>
+</div>

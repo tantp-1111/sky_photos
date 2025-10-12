@@ -12,19 +12,19 @@
   <!-- タイトル -->
   <h1 class="text-3xl font-bold text-center mb-4">『 <%= @post.title %> 』</h1>
 
-  <!-- 本文 -->
-  <div class="prose prose-lg mx-auto text-gray-800 whitespace-pre-line">
-    <%= @post.body %>
-  </div>
-
   <!-- 投稿者や日時 -->
   <div class="text-center text-sm text-gray-500 mt-6">
     投稿者：<%= @post.user.name if @post.user %>
     / 投稿日：<%= l @post.created_at %>
   </div>
 
-  <%= render 'comments/form', comment: @comment, post: @post %>
+  <!-- 本文 -->
+  <div class="prose prose-lg mx-auto text-gray-800 whitespace-pre-line mb-12">
+    <%= @post.body %>
+  </div>
 
+  <%= render 'comments/form', comment: @comment, post: @post %>
+  <h3>コメント一覧</h3>
   <%= render @comments %>
 
   <!-- 戻るボタン -->

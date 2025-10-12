@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CardHoverController from "./card_hover_controller"
+application.register("card-hover", CardHoverController)
+
 import HamburgerController from "./hamburger_controller"
 application.register("hamburger", HamburgerController)
 
