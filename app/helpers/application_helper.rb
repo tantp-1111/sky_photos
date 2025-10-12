@@ -13,4 +13,9 @@ module ApplicationHelper
       "text-gray-800 bg-gray-50 border border-gray-300"
     end
   end
+
+  def page_title(title = '')
+    base_title = 'SkyPhotos'
+    title.present? ? "#{title} | #{base_title}" : base_title
+  end
 end

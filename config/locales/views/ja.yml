@@ -19,7 +19,7 @@ ja:
     post: 空
     post_index: 空を見上げる
     create_post: 空投稿
-    bookmark_index: お気に入り空
+    bookmark_index: お気に入りの空
     profile: プロフィール
   user_sessions:
     new:
@@ -44,3 +44,5 @@ ja:
       title: 空を新規作成
     show:
       title: 空の詳細
+    index:
+      title: 空一覧
