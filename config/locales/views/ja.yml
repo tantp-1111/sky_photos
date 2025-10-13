@@ -1,9 +1,13 @@
 ja:
   defaults:
+    create: 作成
     post: 投稿
+    delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
       require_login: ログインしてください
   helpers:
     submit:
@@ -46,3 +50,5 @@ ja:
       title: 空の詳細
     index:
       title: 空一覧
+    edit:
+      title: 空を編集

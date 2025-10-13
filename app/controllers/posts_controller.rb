@@ -23,6 +23,10 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
+  def edit
+    @post = current_user.posts.find(params[:id])
+  end
+
   private
 
   def post_params
