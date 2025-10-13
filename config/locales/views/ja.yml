@@ -8,6 +8,7 @@ ja:
       not_created: "%{item}を作成出来ませんでした"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
       require_login: ログインしてください
   helpers:
     submit:

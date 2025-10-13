@@ -1,6 +1,6 @@
 <%= link_to post_path(post),
     id: "post-id-#{post.id}",
-    class: "block relative overflow-hidden bg-white border border-gray-800 shadow-xl hover:shadow-2xl transition-shadow duration-300 group",
+    class: "block relative overflow-hidden bg-white border border-gray-800 shadow-2xl",
     data: {
       controller: "card-hover",
       action: "mouseenter->card-hover#mouseEnter mouseleave->card-hover#mouseLeave"
@@ -20,7 +20,7 @@
 
   <!-- テキストオーバーレイ -->
   <div data-card-hover-target="overlay"
-       class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm p-4 transition-transform duration-300 ease-out">
+       class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm p-3 transition-transform duration-300 ease-out">
     <h4 class="text-lg font-semibold text-gray-800 mb-2"><%= post.title %></h4>
     <div class="text-sm text-gray-600">
       <p class="mb-1"><%= post.user.name %></p>
