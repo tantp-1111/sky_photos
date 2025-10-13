@@ -53,3 +53,11 @@ ja:
       title: 空一覧
     edit:
       title: 空を編集
+    bookmarks:
+      title: お気に入りの空一覧
+      no_result: お気に入り登録された空はありません
+  bookmarks:
+    create:
+      success: お気に入りに登録しました
+    destroy:
+      success: お気に入りを解除しました

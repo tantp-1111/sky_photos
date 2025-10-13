@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   validate :image_size
 
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   # アップロード形式とサイズバリデーション
   def image_content_type
