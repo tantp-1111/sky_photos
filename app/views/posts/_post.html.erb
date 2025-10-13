@@ -25,6 +25,12 @@
     <div class="text-sm text-gray-600">
       <p class="mb-1"><%= post.user.name %></p>
       <p><%= l post.created_at %></p>
+      <% if current_user&.bookmark?(post) %>
+      <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+        <i class="fas fa-star mr-1"></i>
+        ブクマ済み
+      </span>
+    <% end %>
     </div>
   </div>
 
