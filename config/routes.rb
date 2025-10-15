@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
-    resources :comments, only: %i[create edit destroy], shallow: true
+    resources :comments, only: %i[create edit update destroy show], shallow: true
     collection do
       get :bookmarks
     end
