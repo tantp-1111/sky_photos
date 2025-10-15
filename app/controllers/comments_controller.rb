@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy, :show]
+  before_action :set_comment, only: [ :edit, :update, :destroy, :show ]
 
   def create
     @comment = current_user.comments.build(comment_create_params)
