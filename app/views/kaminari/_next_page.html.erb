@@ -1,0 +1,5 @@
+<li class="next">
+  <%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url,
+      rel: 'next',
+      class: "block py-[8px] w-8 h-8 bg-white border border-gray-300 text-xs text-gray-600 font-bold text-center !leading-none rounded-r-[3px] hover:bg-gray-50 transition-colors" %>
+</li>

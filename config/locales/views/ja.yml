@@ -61,3 +61,7 @@ ja:
       success: お気に入りに登録しました
     destroy:
       success: お気に入りを解除しました
+  views:
+    pagination:
+      next: 次へ
+      previous: 前へ
