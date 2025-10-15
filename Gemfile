@@ -61,6 +61,9 @@ group :test do
 end
 
 gem "tailwindcss-rails"
+
 gem "tailwindcss-ruby", "3.4.17"
 
 gem "image_processing", ">= 1.2"
+
+gem "kaminari", "1.2.2"
