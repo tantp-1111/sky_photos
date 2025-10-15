@@ -2,6 +2,7 @@ ja:
   defaults:
     create: 作成
     post: 投稿
+    edit: 編集
     delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
@@ -25,7 +26,7 @@ ja:
     post_index: 空を見上げる
     create_post: 空投稿
     bookmark_index: お気に入りの空
-    profile: プロフィール
+    profile: マイページ
   user_sessions:
     new:
       title: ログイン
@@ -65,3 +66,8 @@ ja:
     pagination:
       next: 次へ
       previous: 前へ
+  profiles:
+    show:
+      title: マイページ
+    edit:
+      title: プロフィール編集
