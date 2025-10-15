@@ -45,8 +45,10 @@
 </div>
 
   <%= render 'comments/form', comment: @comment, post: @post %>
-  <h3>コメント一覧</h3>
+  <h3 class="text-lg font-semibold mb-4">コメント一覧</h3>
+  <div id="table-comment">
   <%= render @comments %>
+  </div>
 
   <!-- 戻るボタン -->
   <div class="flex justify-center mt-8">
