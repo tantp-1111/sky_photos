@@ -45,7 +45,8 @@ Rails.application.configure do
 
   # Unlike controllers, the mailer instance doesn't have any context about the
   # incoming request so you'll need to provide the :host parameter yourself.
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  # デフォルトのURLオプションを設定,confiigに記述
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr

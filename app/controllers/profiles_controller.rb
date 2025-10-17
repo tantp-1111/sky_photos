@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
+
   def show
     @posts = current_user.posts.order(created_at: :desc)
+    # マイページで自分の投稿を表示
   end
 
   def edit
