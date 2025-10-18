@@ -88,8 +88,8 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domain:               "sky-photos.onrender.com",
-    user_name:            "djot mren wqrk vwii",
-    password:             "tantpapp@gmail.com",
+    user_name:            ENV["GMAIL_USERNAME"],
+    password:             ENV["GMAIL_PASSWORD"],
     authentication:       "plain",
     enable_starttls_auto: true
   }
