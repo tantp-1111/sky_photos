@@ -80,6 +80,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
   config.action_mailer.raise_delivery_errors = true
+  # らんてくんに言われて追加
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
@@ -87,8 +88,8 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domain:               "sky-photos.onrender.com",
-    user_name:            ENV["GMAIL_USERNAME"],
-    password:             ENV["GMAIL_PASSWORD"],
+    user_name:            "djot mren wqrk vwii",
+    password:             "tantpapp@gmail.com",
     authentication:       "plain",
     enable_starttls_auto: true
   }
