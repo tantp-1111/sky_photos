@@ -4,19 +4,8 @@ class PasswordResetsController < ApplicationController
   def new; end
 
   def create
-    Rails.logger.info "=== Password reset started for email: #{params[:email]} ==="
-  @user = User.find_by(email: params[:email])
-  
-  if @user
-    Rails.logger.info "=== User found, sending email... ==="
-    begin
-      @user.deliver_reset_password_instructions!
-      Rails.logger.info "=== Email sent successfully ==="
-    rescue => e
-      Rails.logger.error "=== Email sending failed: #{e.message} ==="
-      Rails.logger.error e.backtrace.join("\n")
-    end
-  end
+    @user = User.find_by(email: params[:email])
+    @user&.deliver_reset_password_instructions!
     redirect_to login_path, success: t(".success")
   end
 
