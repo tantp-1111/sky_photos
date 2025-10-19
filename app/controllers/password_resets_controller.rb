@@ -4,11 +4,8 @@ class PasswordResetsController < ApplicationController
   def new; end
 
   def create
-    pp 'createスタート'
     @user = User.find_by(email: params[:email])
-    pp 'インスタンス変数@userにセット'
     @user&.deliver_reset_password_instructions!
-    pp 'メール送信メソッド実行'
     # パスワードをリセットする方法（ランダムなトークンを含むURL）を記載したメールをユーザーに送信
     redirect_to login_path, success: t(".success")
   end
