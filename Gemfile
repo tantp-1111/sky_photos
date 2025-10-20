@@ -73,3 +73,5 @@ gem "kaminari", "1.2.2"
 gem "config", "~> 4.2.0"
 
 gem "dotenv-rails"
+
+gem "cloudinary"
