@@ -1,6 +1,7 @@
 <!-- Stimulusコントローラーを適用 -->
 <div class="mb-6" data-controller="previews">
   <%= form.label :image, "画像", class: "block text-sm font-medium text-gray-700 mb-2" %>
+  <p class="text-sm text-black mb-4">※JPEG/JPG/PNG形式の画像のみ,10MB以下</p>
 
 <!-- 既存の画像があれば表示（編集時のみ） -->
   <% if post.persisted? && post.image.attached? %>
@@ -15,8 +16,9 @@
     <p class="text-sm text-gray-600 mb-2">新しい画像を選択する場合:</p>
   <% end %>
 
+<!-- ファイル入力フィールド -->
   <%= form.file_field :image,
-    accept: "image/*",
+    accept: "image/jpeg, image/jpg, image/png",
       data: {
               previews_target: "input",
               action: "change->previews#preview"

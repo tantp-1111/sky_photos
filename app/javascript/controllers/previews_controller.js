@@ -8,53 +8,47 @@ export default class extends Controller {
     console.log("Preview controller connected")
   }
 
-  currentObjectURL = null
-
   preview(event) {
     const file = event.target.files[0]
-    //選択されたファイルを取得
+    const maxSizeInBytes = 10 * 1024 * 1024 // 10MB
+    const validTypes = ["image/jpeg", "image/jpg", "image/png"]
 
-    if (file) {
-      // MIMEタイプで画像ファイルかどうかを確認
-      if (file.type.startsWith('image/')) {
-        // 既存のオブジェクトURLがあれば解放
-        this.revokeCurrentObjectURL()
-
-        // 新しいオブジェクトURLを作成
-        this.currentObjectURL = URL.createObjectURL(file)
-
-        this.imageTarget.src = this.currentObjectURL // srcに設定
-        this.previewTarget.classList.remove('hidden')  // プレビューを表示
-      } else {
-        alert('画像ファイルを選択してください。')
-        this.inputTarget.value = ''
+    // MIMEタイプのチェック
+    if (!validTypes.includes(file.type)) {
+      alert("JPEG、JPG、PNG形式のファイルを選択してください。")
+      // 不正なファイル形式の場合のアラート表示
+      this.removeImage()
+      return
+    }
+    // ファイルサイズのチェック
+    if (file.size < maxSizeInBytes ) {
+      const reader = new FileReader()
+      //readerをfilereaderオブジェクトとして定義
+      reader.readAsDataURL(file)
+      // ファイルをデータURLとして読み込む
+      reader.onload = (e) => {
+        // readerにファイル読み込み完了時の処理を定義
+        this.imageTarget.src = e.target.result
+        // 読み込んだデータをプレビュー画像のsrcに設定,e.targetでイベントを発生させたFilereaderオブジェクトを取得
+        this.previewTarget.classList.remove("hidden")
+        // プレビューエリアのhiddenクラスを削除して表示
       }
     } else {
-      this.hidePreview()
+      alert("ファイルサイズは10MB以下にしてください。")
+      // ファイルが大きすぎる場合のアラート表示
+      this.removeImage()
     }
   }
 
+  // 画像削除処理
   removeImage() {
-    this.inputTarget.value = ''  // ファイル入力をクリア
-    this.hidePreview()  // プレビューを非表示
+    this.inputTarget.value = null
+    this.imageTarget.src = null
+    this.previewTarget.classList.add("hidden")
   }
 
-  hidePreview() {
-    this.previewTarget.classList.add('hidden')  // CSSクラスで非表示
-    this.imageTarget.src = ''   // 画像のsrcをクリア
-    this.revokeCurrentObjectURL()  // オブジェクトURLを解放
-  }
-
-  // オブジェクトURLの解放処理
-  revokeCurrentObjectURL() {
-    if (this.currentObjectURL) {
-      URL.revokeObjectURL(this.currentObjectURL)
-      this.currentObjectURL = null
-    }
-  }
-
-  // コントローラーが破棄される時にもクリーンアップ
   disconnect() {
     this.revokeCurrentObjectURL()
+    console.log("Preview controller disconnected")
   }
 }

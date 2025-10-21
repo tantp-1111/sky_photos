@@ -28,27 +28,36 @@
         <%= @post.body %>
       </div>
 
-      <!-- 編集・削除ボタン (自分の投稿であれば表示)-->
-      <% if current_user&.own?(@post) %>
-        <div class="flex justify-end space-x-4 mt-2">
-          <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "text-blue-600 hover:underline" do %>
-            編集
-          <% end %>
-          <%= link_to post_path(@post), id: "button-delete-#{@post.id}", method: :delete, data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "text-red-600 hover:underline" do %>
-            削除
-          <% end %>
-        </div>
-      <% else %>
-        <div class="flex justify-end space-x-4 mt-2">
-          <%= render 'bookmark_buttons', { post: @post } %>
-        </div>
+      <!-- サインインしているユーザーであれば表示 -->
+      <%if logged_in? %>
+        <!-- 編集・削除ボタン (自分の投稿であれば表示)-->
+        <% if current_user&.own?(@post) %>
+          <div class="flex justify-end space-x-4 mt-2">
+            <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "text-blue-600 hover:underline" do %>
+              編集
+            <% end %>
+            <%= link_to post_path(@post), id: "button-delete-#{@post.id}", method: :delete, data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "text-red-600 hover:underline" do %>
+              削除
+            <% end %>
+          </div>
+        <% else %>
+          <!-- ブクマボタン(他人の投稿であれば表示) -->
+          <div class="flex justify-end space-x-4 mt-2">
+            <%= render 'bookmark_buttons', { post: @post } %>
+          </div>
+        <% end %>
       <% end %>
   </div>
 
-  <%= render 'comments/form', comment: @comment, post: @post %>
+  <!-- サインインしているユーザーであればフォーム表示 -->
+  <%if logged_in? %>
+    <!-- コメントフォーム -->
+    <%= render 'comments/form', comment: @comment, post: @post %>
+  <% end %>
+  <!-- コメント一覧 -->
   <h3 class="text-lg font-semibold mb-4">コメント一覧</h3>
   <div id="table-comment">
-  <%= render @comments %>
+    <%= render @comments %>
   </div>
 
   <!-- 戻るボタン -->
