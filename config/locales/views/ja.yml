@@ -29,6 +29,10 @@ ja:
     create_post: 空投稿
     bookmark_index: お気に入りの空
     profile: マイページ
+  footer:
+    top: トップ
+    admin_page: 管理画面
+    privacy_policy: プライバシーポリシー(工事中)
   user_sessions:
     new:
       title: ログイン
