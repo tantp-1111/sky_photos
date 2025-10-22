@@ -12,7 +12,7 @@ Rails.application.configure do
   config.enable_reloading = false
 
   # test環境でもSassC圧縮を無効化
-config.assets.css_compressor = nil
+  config.assets.css_compressor = nil
 
   # Eager loading loads your entire application. When running a single test locally,
   # this is usually not necessary, and can slow down your test suite. However, it's

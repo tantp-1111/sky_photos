@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
   config.asset_source = :sprockets
 
   config.authenticate_with do
-    #sorceryのメソッド
+    # sorceryのメソッド
     require_login
     redirect_to main_app.root_path unless current_user.admin? # 管理者じゃなかったらrootへリダイレクト
     # main_appをつけることで、RailsAdminのルーティングではなく、アプリケーション側のルーティングを参照できる
@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   # == CancanCan ==
   config.authorize_with :cancancan
 
-  config.parent_controller = 'ApplicationController' #追記
+  config.parent_controller = "ApplicationController" # 追記
 
   ### Popular gems integration
 
