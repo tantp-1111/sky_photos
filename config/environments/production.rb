@@ -23,7 +23,7 @@ Rails.application.configure do
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
 
-  # Compress CSS using a preprocessor.
+  # Compress CSS using a preprocessor.ここをnilにすることで、sassc-railsが有効になる
   config.assets.css_compressor = nil
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
