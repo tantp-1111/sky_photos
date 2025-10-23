@@ -1,2 +1,7 @@
-<%= button_to "💫 エモい！", post_emo_reactions_path(@post), id: "emo_button-for-post-#{post.id}" %>
-  <span id="emo-count"><%= @post.emo_count %></span>
+<div id="emo_count_for_post_<%= post.id %>">
+  <%= button_to "🩵エモし", emo_reactions_post_path(post),
+      id: "emo-button-for-post-#{post.id}",
+      method: :patch,
+      class: "text-2xl hover:scale-110 transition" %>
+  <div class="text-pink-600"><%= post.emo_count %></div>
+</div>

@@ -49,6 +49,17 @@ class PostsController < ApplicationController
     @bookmark_posts = current_user.bookmark_posts
   end
 
+  def emo_reactions
+    @post = Post.find(params[:id])
+    @post.emo_count += 1
+    if @post.save
+      respond_to do |format|
+        format.turbo_stream
+        format.html {redirect_to post_path(@post)}
+      end
+    end
+  end
+
   private
 
   def post_params
