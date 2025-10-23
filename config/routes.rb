@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "emo_reactions/create"
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   get "posts/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
+    resources :emo_reactions, only: %i[create]
     resources :comments, only: %i[create edit update destroy show], shallow: true
     collection do
       get :bookmarks

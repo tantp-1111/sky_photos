@@ -45,6 +45,10 @@
           <div class="flex justify-end space-x-4 mt-2">
             <%= render 'bookmark_buttons', { post: @post } %>
           </div>
+          <!-- エモートリアクションボタン -->
+          <div class="flex justify-end space-x-4 mt-2">
+            <%= render 'emo_count', { post: @post } %>
+          </div>
         <% end %>
       <% end %>
   </div>
