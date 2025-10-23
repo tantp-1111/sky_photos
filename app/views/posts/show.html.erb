@@ -1,5 +1,5 @@
 <% content_for(:title, @post.title) %>
-  <div class="max-w-3xl mx-auto px-4 py-8 flex flex-col">
+  <div class="max-w-3xl mx-auto px-4 py-8 flex flex-col w-full">
 
 
 
@@ -39,13 +39,14 @@
             <%= link_to post_path(@post), id: "button-delete-#{@post.id}", method: :delete, data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "text-red-600 hover:underline" do %>
               削除
             <% end %>
+            <div class="text-pink-600"><%= @post.emo_count %>エモ確得</div>
           </div>
         <% else %>
           <!-- ブクマボタン(他人の投稿であれば表示) -->
           <div class="flex justify-end space-x-4 mt-2">
             <%= render 'bookmark_buttons', { post: @post } %>
           </div>
-          <!-- エモートリアクションボタン -->
+          <!-- エモリアクションボタン -->
           <div class="flex justify-end space-x-4 mt-2">
             <%= render 'emo_count', { post: @post } %>
           </div>

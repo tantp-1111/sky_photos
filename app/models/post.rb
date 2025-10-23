@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_one_attached :image
   validate :image_content_type
   validate :image_size
+  validates :image, presence: true
 
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy

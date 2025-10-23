@@ -1,6 +1,6 @@
 <% content_for(:title, t('.title')) %>
-<div class="m-8">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<div class="m-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     <% if @posts.present? %>
       <%= render partial: "post", collection: @posts %>
     <% else %>

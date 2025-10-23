@@ -1,9 +1,9 @@
 <% if page.current? %>
   <li class="page current">
-    <%= content_tag :span, page, class: "block py-[9px] w-8 h-8 border text-xs text-white bg-sky-500 font-bold text-center !leading-none" %>
+    <%= content_tag :span, page, class: "block py-[9px] w-8 h-8 border text-xs text-white bg-gray-800 font-bold text-center !leading-none" %>
   </li>
 <% else %>
   <li class="page">
-    <%= link_to page, url, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white border border-gray-300 text-xs text-sky-500 font-bold text-center !leading-none hover:bg-gray-50 transition-colors" %>
+    <%= link_to page, url, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white border border-gray-300 text-xs text-gray-800 font-bold text-center !leading-none hover:bg-gray-50 transition-colors" %>
   </li>
 <% end %>

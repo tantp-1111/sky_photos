@@ -1,5 +1,5 @@
 <% flash.each do |message_type, message| %>
-  <div class="<%= flash_message_class(message_type) %> p-4 mb-4 rounded-lg">
+  <div class="<%= flash_message_class(message_type) %> p-4 rounded-md">
     <%= message %>
   </div>
 <% end %>

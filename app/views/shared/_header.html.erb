@@ -1,9 +1,9 @@
-<header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+<header class="bg-gray-800 shadow-sm sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- ロゴ -->
       <%= link_to root_path, class: "flex items-center" do %>
-        <h1 class="text-2xl font-bold text-gray-800 hover:text-gray-600 transition-colors">
+        <h1 class="text-2xl font-bold text-white hover:text-sky-300 transition-colors">
           SkyPhotos
         </h1>
       <% end %>
@@ -11,12 +11,12 @@
       <div class="flex items-center space-x-4">
         <!-- 常に表示される掲示板一覧リンク -->
         <%= link_to t('header.post_index'), posts_path,
-        class: "text-blue-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-50" %>
+        class: "text-gray-300 hover:text-sky-300 px-3 py-2 rounded-md text-sm font-medium transition-colors" %>
 
         <!-- ハンバーガーメニュー（常に表示）stimulusで実装 -->
         <div data-controller="hamburger" class="relative">
           <!--クリックしたらhamburgerコントローラーのtoggleメソッドを実行-->
-          <button data-action="click->hamburger#toggle" class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+          <button data-action="click->hamburger#toggle" class="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-200">
             <span class="sr-only">メニューを開く</span>
             <!-- ハンバーガーアイコン -->
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -28,13 +28,13 @@
           <div data-hamburger-target="menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 hidden z-50">
             <div class="py-1">
               <%= link_to t('header.create_post'), new_post_path,
-              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100" %>
+              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-sky-100 border-b border-gray-100" %>
               <%= link_to t('header.bookmark_index'), bookmarks_posts_path,
-              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100" %>
+              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-sky-100 border-b border-gray-100" %>
               <%= link_to t('header.profile'), profile_path,
-              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100" %>
+              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-sky-100 border-b border-gray-100" %>
               <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete },
-              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100" %>
+              class: "block px-4 py-3 text-sm text-gray-700 hover:bg-sky-100" %>
             </div>
           </div>
         </div>
