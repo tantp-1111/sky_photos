@@ -76,7 +76,7 @@ class PostsController < ApplicationController
     render turbo_stream: turbo_stream.replace(
       "emo_count_for_post_#{@post.id}",
       partial: "emo_count",
-      locals: { post: @post } ),
+      locals: { post: @post }),
     status: :unprocessable_entity
   end
 end
