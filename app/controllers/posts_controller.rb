@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     if @post.save
       respond_to do |format|
         format.turbo_stream
-        format.html {redirect_to post_path(@post)}
+        format.html { redirect_to post_path(@post) }
       end
     end
   end
