@@ -52,10 +52,16 @@ class PostsController < ApplicationController
   def emo_reactions
     @post = Post.find(params[:id])
     @post.emo_count += 1
+
     if @post.save
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to post_path(@post) }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream { render_error_turbo_stream }
+        format.html { redirect_to post_path(@post), danger: t("defaults.flash_message.not_updated", item: Post.model_name.human) }
       end
     end
   end
@@ -64,5 +70,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image)
+  end
+
+  def render_error_turbo_stream
+    render turbo_stream: turbo_stream.replace(
+      "emo_count_for_post_#{@post.id}",
+      partial: "emo_count",
+      locals: { post: @post } ),
+    status: :unprocessable_entity
   end
 end
