@@ -1,4 +1,4 @@
-<div style="background-image: url('<%= asset_path('skytop.png') %>'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed" class="h-screen flex flex-col items-center justify-center">
+<div style="background-image: url('<%= asset_path('skytop.png') %>'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed" class="min-h-screen flex flex-col items-center justify-center pt-20 pb-20">
   <div class="text-center px-4">
     <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
       SkyPhotos
@@ -8,8 +8,41 @@
       お空の写真<br class="sm:hidden">
       共有しませんか？
     </p>
-    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <%= link_to '空を見上げる', posts_path, class: 'px-8 py-3 bg-white hover:bg-gray-50 text-sky-600 font-semibold rounded-full shadow-lg border-2 border-sky-500 transition duration-300 text-center' %>
+    </div>
+    <!-- 特徴セクション -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- エモいボタン -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-5xl mb-4">💙</div>
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">エモいを表現</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          心に響く空の写真に出会ったら、<br>
+          エモいボタンで気持ちを伝えよう。<br>
+          何度でも押せます。
+        </p>
       </div>
+      <!-- お気に入り -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-5xl mb-4">⭐</div>
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">お気に入りリスト</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          星マークで保存して、<br>
+          あなただけの空の写真<br>
+          コレクションを作ろう。
+        </p>
+      </div>
+      <!-- 反響確認 -->
+      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="text-5xl mb-4">📊</div>
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">反響を確認</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          投稿した空の写真が<br>
+          どれだけエモいと思われたか<br>
+          数字で確認できます。
+        </p>
+      </div>
+    </div>
   </div>
 </div>
