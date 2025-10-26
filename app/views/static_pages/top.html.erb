@@ -13,35 +13,41 @@
     </div>
     <!-- 特徴セクション -->
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- エモいボタン -->
-      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <div class="text-5xl mb-4">💙</div>
+      <!-- 投稿 -->
+      <div class="bg-white p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="flex justify-center mb-4">
+          <%= image_tag "takepicture.png", alt: "写真を撮影", class: "w-32 h-32" %>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">写真を投稿</h3>
+        <div class="text-gray-600 text-sm leading-relaxed">
+          <p>心に響く空の写真に出会ったら、</p>
+          <p>その時感じた気持ちを残そう。</p>
+          <p>本文は空欄でもOK</p>
+        </div>
+      </div>
+      <!-- emoボタン -->
+      <div class="bg-white p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="flex justify-center mb-4">
+          <%= image_tag "heart.png", alt: "エモボタン", class: "w-32 h-32" %>
+        </div>
         <h3 class="text-xl font-semibold mb-3 text-gray-800">エモいを表現</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          心に響く空の写真に出会ったら、<br>
-          エモいボタンで気持ちを伝えよう。<br>
-          何度でも押せます。
-        </p>
+        <div class="text-gray-600 text-sm leading-relaxed">
+          <p>みんなの空の投稿をみて心に響いたら</p>
+          <p>エモいボタンで気持ちを伝えよう。</p>
+          <p>何度でも押せます。</p>
+        </div>
       </div>
-      <!-- お気に入り -->
-      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <div class="text-5xl mb-4">⭐</div>
-        <h3 class="text-xl font-semibold mb-3 text-gray-800">お気に入りリスト</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          星マークで保存して、<br>
-          あなただけの空の写真<br>
-          コレクションを作ろう。
-        </p>
-      </div>
-      <!-- 反響確認 -->
-      <div class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <div class="text-5xl mb-4">📊</div>
-        <h3 class="text-xl font-semibold mb-3 text-gray-800">反響を確認</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          投稿した空の写真が<br>
-          どれだけエモいと思われたか<br>
-          数字で確認できます。
-        </p>
+      <!-- お気に入り登録 -->
+      <div class="bg-white p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div class="flex justify-center mb-4">
+          <%= image_tag "favorite.png", alt: "お気に入り登録できる", class: "w-32 h-32" %>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-gray-800">お気に入り登録</h3>
+        <div class="text-gray-600 text-sm leading-relaxed">
+          <p>お気に入り登録して、</p>
+          <p>あなただけの空の写真</p>
+          <p>コレクションを作ろう。</p>
+        </div>
       </div>
     </div>
   </div>
