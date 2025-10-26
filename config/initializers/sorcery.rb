@@ -5,7 +5,7 @@
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
 # サブモジュールにreset_passwordを追加
-Rails.application.config.sorcery.submodules = [ :reset_password ]
+Rails.application.config.sorcery.submodules = [:reset_password, :external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
