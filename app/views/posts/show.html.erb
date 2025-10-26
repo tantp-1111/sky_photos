@@ -30,22 +30,24 @@
         <!-- 編集・削除ボタン (自分の投稿であれば表示)-->
         <% if current_user&.own?(@post) %>
           <div class="flex justify-end space-x-4 mt-2">
+            <div class="text-pink-600"><%= @post.emo_count %>回エモいボタンが押されました</div>
             <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: "text-blue-600 hover:underline" do %>
               <%= image_tag "icon_pen.svg", alt: "edit", class: "w-6 h-6 mr-2" %>
             <% end %>
             <%= link_to post_path(@post), id: "button-delete-#{@post.id}", method: :delete, data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "text-red-600 hover:underline" do %>
               <%= image_tag "icon_trash.svg", alt: "delete", class: "w-6 h-6 mr-2" %>
             <% end %>
-            <div class="text-pink-600"><%= @post.emo_count %>エモ確得</div>
           </div>
         <% else %>
-          <!-- ブクマボタン(他人の投稿であれば表示) -->
-          <div class="flex justify-end space-x-4 mt-2">
-            <%= render 'bookmark_buttons', { post: @post } %>
-          </div>
-          <!-- エモリアクションボタン -->
-          <div class="flex justify-end space-x-4 mt-2">
-            <%= render 'emo_count', { post: @post } %>
+          <div class="flex items-center justify-between mt-4">
+            <!-- エモリアクションボタン -->
+            <div>
+              <%= render 'emo_count', { post: @post } %>
+            </div>
+            <!-- ブクマボタン(他人の投稿であれば表示) -->
+            <div>
+              <%= render 'bookmark_buttons', { post: @post } %>
+            </div>
           </div>
         <% end %>
       <% end %>
