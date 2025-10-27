@@ -2,16 +2,16 @@
   <%= button_to emo_reactions_post_path(post),
       method: :patch,
       id: "emo-button-for-post-#{post.id}",
-      class: "group relative overflow-hidden rounded-full bg-gradient-to-r from-pink-400 via-sky-400 to-purple-400 px-6 py-2 text-lg font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95" do %>
+      class: "group relative overflow-hidden rounded-full bg-gradient-to-r from-pink-300 via-sky-300 to-purple-300 px-6 py-2 text-lg font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95" do %>
     <span class="relative z-10 flex items-center space-x-2">
-      <span class="text-2xl group-hover:animate-bounce">🩵</span>
+      <!-- <span class="text-2xl group-hover:animate-bounce">🩵</span> -->
       <span>エモい</span>
-      <span class="text-2xl group-hover:animate-bounce">✨</span>
+      <!-- <span class="text-2xl group-hover:animate-bounce">✨</span> -->
     </span>
     <!-- 光の反射エフェクト -->
     <span class="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-[100%]"></span>
   <% end %>
-  <div class="flex flex-col items-center text-gray-800 text-sm">
+  <div class="flex flex-col items-center text-pink-500 text-sm">
     <p>総エモ数</p>
     <div class="text-pink-500 font-semibold text-2xl drop-shadow-sm">
       <%= post.emo_count %>

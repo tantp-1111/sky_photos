@@ -23,7 +23,17 @@
         </div>
         <%= f.submit t('helpers.submit.create'), class: "w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200 font-semibold" %>
         <% end %>
-        <div class='text-blue-600 font-medium hover:underline'>
+        <div class="my-6 flex items-center">
+          <div class="flex-grow border-t border-gray-300"></div>
+          <span class="mx-3 text-xs text-gray-500">または</span>
+          <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+        <div class="flex items-center justify-center mb-10">
+          <%= link_to auth_at_provider_path(provider: :google) do %>
+          <%= image_tag "web_light_rd_SU.svg", alt: "Google" %>
+          <% end %>
+        </div>
+        <div class='text-blue-600 text-center font-medium hover:underline'>
           <%= link_to t('.to_login_page'), login_path %>
         </div>
     </div>

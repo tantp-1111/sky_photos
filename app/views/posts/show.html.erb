@@ -50,6 +50,15 @@
             </div>
           </div>
         <% end %>
+      <% else %>
+        <div class="flex items-center">
+          <div class="text-pink-500 font-semibold text-2xl drop-shadow-sm p-1">
+            <%= @post.emo_count %>
+          </div>
+          <div class="text-pink-500 text-sm mr-2">
+          <p>エモ</p>
+          </div>
+        </div>
       <% end %>
   </div>
 
