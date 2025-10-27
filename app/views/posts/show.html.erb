@@ -1,4 +1,11 @@
 <% content_for(:title, @post.title) %>
+
+<!-- OGP設定を追加 -->
+<% content_for :og_title, @post.title %>
+<% content_for :og_description, @post.body.truncate(80) if @post.body.present? %>
+<% content_for :og_image, url_for(@post.image) if @post.image.attached? %>
+<!-- ここまで -->
+
   <div class="max-w-3xl mx-auto px-4 py-8 flex flex-col w-full">
 
   <div class="w-full bg-white rounded-2xl shadow-lg border border-gray-200 p-6 flex flex-col space-y-6 mb-10">
@@ -60,6 +67,12 @@
           </div>
         </div>
       <% end %>
+      <div class="mt-8 flex justify-center items-center">
+        <% share_url = "https://twitter.com/intent/tweet?url=#{CGI.escape(request.original_url)}&text=#{CGI.escape(@post.title)}" %>
+        <%= link_to share_url, target: "_blank", rel: "noopener noreferrer", class: "bg-sky-500 inline-block text-white px-4 py-2 rounded-lg" do %>
+        Xでシェア
+        <% end %>
+      </div>
   </div>
 
   <!-- サインインしているユーザーであればフォーム表示 -->
