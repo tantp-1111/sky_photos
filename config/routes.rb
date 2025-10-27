@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   get "posts/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
