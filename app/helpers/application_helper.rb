@@ -18,4 +18,51 @@ module ApplicationHelper
     base_title = "SkyPhotos"
     title.present? ? "#{title} | #{base_title}" : base_title
   end
+
+  def show_meta_tags
+    assign_meta_tags if display_meta_tags.blank?
+    display_meta_tags
+  end
+
+  def assign_meta_tags(options = {})
+    defaults = default_meta_tags # 定義しているデフォルト設定
+    options.reverse_merge!(defaults)
+
+    image = options[:image].presence || ( request.base_url + image_path('place_holder.png') )
+
+    meta_config = {
+      site: options[:site],
+      title: options[:title],
+      description: options[:body],
+      keywords: options[:keywords],
+      canonical: request.original_url,
+      reverse: true,
+      separator: '|',
+      og: {
+        title: options[:title].presence || options[:site],
+        body: options[:body],
+        url: request.original_url,
+        image:,
+        site_name: options[:site],
+        type: 'website'
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: options[:site],
+        image:
+      }
+    }
+
+    set_meta_tags(meta_config)
+  end
+
+  # default_meta_tagsメソッド
+  def default_meta_tags
+    {
+      site: 'Skyphotos',
+      title: '空の写真を共有するエモいアプリ',
+      body: 'ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」',
+      keywords: '空, 写真, エモい, sky, photos, 共有'
+    }
+  end
 end

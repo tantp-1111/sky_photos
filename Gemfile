@@ -81,3 +81,5 @@ gem "rails_admin", "~> 3.0"
 gem "sassc-rails"
 
 gem "cancancan"
+
+gem "meta-tags"

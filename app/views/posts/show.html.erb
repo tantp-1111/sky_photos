@@ -1,10 +1,5 @@
+<% assign_meta_tags title: @post.title, body: @post.body, image: rails_blob_path(@post.image) %>
 <% content_for(:title, @post.title) %>
-
-<!-- OGP設定を追加 -->
-<% content_for :og_title, @post.title %>
-<% content_for :og_description, @post.body.truncate(80) if @post.body.present? %>
-<% content_for :og_image, url_for(@post.image) if @post.image.attached? %>
-<!-- ここまで -->
 
   <div class="max-w-3xl mx-auto px-4 py-8 flex flex-col w-full">
 
