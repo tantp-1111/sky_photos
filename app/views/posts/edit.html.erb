@@ -4,6 +4,7 @@
     <div class="w-full max-w-md">
       <h1 class="text-xl font-semibold text-center mb-8"><%= t('.title') %></h1>
       <%= render 'form', post: @post %>
+      <%= link_to "戻る", post_path, class: "w-full bg-gray-600 text-white text-lg py-1 rounded-lg hover:bg-gray-700 transition duration-200 font-semibold mb-8 block text-center" %>
     </div>
   </div>
 </div>

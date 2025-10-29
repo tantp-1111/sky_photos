@@ -39,6 +39,7 @@
            class: "block text-lg font-semibold text-gray-600 hover:text-sky-500 transition" %>
           <p class="text-sea/80 text-sm mt-1 truncate"><%= post.body.truncate(50) %></p>
           <p class="text-sea/50 text-xs mt-2"><%= l post.created_at, format: :short %></p>
+          <p class="text-sea/50 text-xs mt-2"><%= post.emo_count %>エモ</p>
         </div>
       </div>
     <% end %>
