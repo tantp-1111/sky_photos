@@ -30,7 +30,7 @@ module ApplicationHelper
     title: "SkyPhotos",
     reverse: true,
     charset: "utf-8",
-    description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」。",
+    description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」",
     keywords: "空, 写真, エモい, sky, photos, 共有",
     og: {
       site_name: :site,
