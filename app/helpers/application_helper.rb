@@ -55,6 +55,6 @@ module ApplicationHelper
       return "https://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}.png"
     end
     # デフォルトOGP画像
-    image_url("place_holder.jpg")
+    image_url("place_holder.png")
   end
 end
