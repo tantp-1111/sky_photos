@@ -24,45 +24,37 @@ module ApplicationHelper
     display_meta_tags
   end
 
-  def assign_meta_tags(options = {})
-    defaults = default_meta_tags # 定義しているデフォルト設定
-    options.reverse_merge!(defaults)
-
-    image = options[:image].presence || ( request.base_url + image_path('place_holder.png') )
-
-    meta_config = {
-      site: options[:site],
-      title: options[:title],
-      description: options[:body],
-      keywords: options[:keywords],
-      canonical: request.original_url,
-      reverse: true,
-      separator: '|',
-      og: {
-        title: options[:title].presence || options[:site],
-        body: options[:body],
-        url: request.original_url,
-        image:,
-        site_name: options[:site],
-        type: 'website'
-      },
-      twitter: {
-        card: 'summary_large_image',
-        site: options[:site],
-        image:
-      }
+  def default_meta_tags
+  {
+    site: "SkyPhotos",
+    title: "SkyPhotos",
+    reverse: true,
+    charset: "utf-8",
+    description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」。",
+    keywords: "空, 写真, エモい, sky, photos, 共有",
+    og: {
+      site_name: :site,
+      title: :title,
+      description: :description,
+      type: "website",
+      url: request.original_url,
+      image: ogp_image_url,
+      locale: "ja-JP"
+    },
+    twitter: {
+      card: "summary_large_image",
+      image: ogp_image_url
     }
-
-    set_meta_tags(meta_config)
+  }
   end
 
-  # default_meta_tagsメソッド
-  def default_meta_tags
-    {
-      site: 'Skyphotos',
-      title: '空の写真を共有するエモいアプリ',
-      body: 'ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」',
-      keywords: '空, 写真, エモい, sky, photos, 共有'
-    }
+  def ogp_image_url
+    if @post&.id
+      public_id = "ogp_images/question_#{@post.id}"
+      cloud_name = Rails.application.credentials.dig(:cloudinary, :cloud_name)
+      return "https://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}.png"
+    end
+    # デフォルトOGP画像
+    image_url("place_holder.jpg")
   end
 end
