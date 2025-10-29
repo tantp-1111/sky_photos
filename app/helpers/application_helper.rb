@@ -50,9 +50,9 @@ module ApplicationHelper
 
   def ogp_image_url
     if @post&.id
-      public_id = "ogp_images/question_#{@post.id}"
+      public_id = @post.image.key
       cloud_name = Rails.application.credentials.dig(:cloudinary, :cloud_name)
-      return "https://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}.png"
+      return "https://res.cloudinary.com/#{cloud_name}/image/upload/#{public_id}.jpeg"
     end
     # デフォルトOGP画像
     image_url("place_holder.png")
