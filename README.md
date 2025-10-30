@@ -1,24 +1,45 @@
-# README
+# 🌈 SkyPhotos — 心に響いた空を共有するアプリ
+## 📷 アプリ概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+何気なく見上げた空が心に響く瞬間ありませんか？
+「SkyPhotos」は、ふと心に響いた空の写真を投稿して、みんなと共有できるアプリです。
 
-Things you may want to cover:
+## 🌤️ 主な機能、使い方
 
-* Ruby version
+空を見上げるボタン：投稿された空を一覧で眺めることができる
 
-* System dependencies
+Xでシェア：自分の心に響いた空の投稿をXで共有可能
 
-* Configuration
+ログイン後
 
-* Database creation
+写真投稿：ログインすると、自分が見つけた素敵な空の写真をコメント付きで投稿可能
 
-* Database initialization
+エモいボタン：他のユーザーの空の投稿に「エモい」と感じたらボタンを何回でも押してリアクション
 
-* How to run the test suite
+お気に入り機能：自分の心に響いた空の投稿を保存して、いつでも見返せる
 
-* Services (job queues, cache servers, search engines, etc.)
+## 💭 コンセプト
 
-* Deployment instructions
+ふと見上げると、壮大で綺麗で、でもどこか寂しさもあるそんな空の風景をみると少しだけ心が揺れ動く。
+そんな瞬間を、ひとりじめせずにみんなで感じたい。共有したい。
+何気ない空の一枚が、誰かの心をそっと動かすかもしれません。
 
-* ...
+## 🛠️ 使用技術
+
+Framework: Ruby on Rails 7
+
+Database: Neon (PostgreSQL)
+
+Frontend: Tailwind CSS
+
+認証: Sorcery（Google OAuth対応）
+
+画像管理: Active Storage
+
+デプロイ: Render
+
+## 🌌 最後に
+
+空はいつもそこにあるのに、見るたびに違う表情を見せてくれる。
+その一瞬を残しつつ、その時感じた気持ちも載せてみよう。
+ほら見上げてごらん。

@@ -31,18 +31,18 @@
   <div class="mt-8">
     <h4 class="text-lg font-bold mb-4">あなたの投稿</h4>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <% @posts.each do |post| %>
-      <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition flex items-center gap-4">
-        <%= image_tag post.image, class: "w-20 h-20 object-cover rounded-lg border-2 border-sea" %>
-        <div class="flex-1 min-w-0">
-          <%= link_to post.title, post_path(post),
-           class: "block text-lg font-semibold text-gray-600 hover:text-sky-500 transition" %>
-          <p class="text-sea/80 text-sm mt-1 truncate"><%= post.body.truncate(50) %></p>
-          <p class="text-sea/50 text-xs mt-2"><%= l post.created_at, format: :short %></p>
-          <p class="text-sea/50 text-xs mt-2"><%= post.emo_count %>エモ</p>
+      <% @posts.each do |post| %>
+        <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition flex items-center gap-4">
+          <%= image_tag post.image, class: "w-20 h-20 object-cover rounded-lg border-2 border-sea" %>
+          <div class="flex-1 min-w-0">
+            <%= link_to post.title, post_path(post),
+             class: "block text-lg font-semibold text-gray-600 hover:text-sky-500 transition" %>
+            <p class="text-sea/80 text-sm mt-1 truncate"><%= post.body.truncate(50) %></p>
+            <p class="text-sea/50 text-xs mt-2"><%= l post.created_at, format: :short %></p>
+            <p class="text-sea/50 text-xs mt-2"><%= post.emo_count %>エモ</p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 

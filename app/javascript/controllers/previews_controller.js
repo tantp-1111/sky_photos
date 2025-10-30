@@ -47,6 +47,7 @@ export default class extends Controller {
     this.previewTarget.classList.add("hidden")
   }
 
+  // デバッグ用
   disconnect() {
     this.revokeCurrentObjectURL()
     console.log("Preview controller disconnected")

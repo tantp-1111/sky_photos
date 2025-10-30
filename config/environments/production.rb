@@ -82,7 +82,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   # らんてくんに言われて追加
   config.action_mailer.perform_deliveries = true
-
+  # パスワードリセットメールの送信元情報
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              "smtp.gmail.com",

@@ -66,20 +66,26 @@ gem "tailwindcss-rails"
 
 gem "tailwindcss-ruby", "3.4.17"
 
+# cloudinary実装時に導入
 gem "image_processing", ">= 1.2"
 
+# ページネーション
 gem "kaminari", "1.2.2"
 
+# 定数管理
 gem "config", "~> 4.2.0"
 
 gem "dotenv-rails"
 
+# 画像ストレージ
 gem "cloudinary"
 
+# 管理画面実装
 gem "rails_admin", "~> 3.0"
 
 gem "sassc-rails"
 
 gem "cancancan"
 
+# メタタグ管理
 gem "meta-tags"

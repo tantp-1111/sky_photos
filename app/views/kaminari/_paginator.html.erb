@@ -1,15 +1,20 @@
 <%= paginator.render do %>
   <nav class="pagination" role="navigation" aria-label="pager">
     <ul class="flex gap-x-1 justify-center items-center">
+      <!-- 最初のページではリンクを表示しない -->
       <%= prev_page_tag unless current_page.first? %>
       <% each_page do |page| %>
+        <!-- このページ番号を表示するかどうか -->
         <% if page.display_tag? %>
           <%= page_tag page %>
+        <!-- ページ番号の間に省略された箇所がある場合 -->
         <% elsif !page.was_truncated? %>
           <%= gap_tag %>
         <% end %>
       <% end %>
+      <!-- ページ番号が存在しない場合は非表示 -->
       <% unless current_page.out_of_range? %>
+        <!-- 最後のページでは「次へ」リンクを非表示する -->
         <%= next_page_tag unless current_page.last? %>
       <% end %>
     </ul>

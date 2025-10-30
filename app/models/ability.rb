@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 class Ability
+  # 権限ごとのルールを設定するクラス
   include CanCan::Ability
 
   def initialize(user)
-    return unless user && user&.admin? # 管理者じゃなかったらこのメソッドを抜ける
+    return unless user && user&.admin?
+    # 管理者じゃなかったらこのメソッドを抜ける
 
-    can :access, :rails_admin # 管理者画面のアクセス許可
-    can :manage, :all # 全ての機能を使えるように設定
+    can :access, :rails_admin
+    # 管理者画面のアクセス許可
+    can :manage, :all
+    # 全ての機能を使えるように設定
 
     # Define abilities for the user here. For example:
     #

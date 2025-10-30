@@ -6,7 +6,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- テーマカラー設定でスマホでのアプリ外背景色指定 -->
     <meta name="theme-color" content="#1f2937">
+    <!-- メタタグ設定 -->
     <%= display_meta_tags(default_meta_tags) %>
 
     <%= yield :head %>

@@ -2,6 +2,7 @@
   <h3 class="text-sm font-semibold text-gray-800"><%= comment.user.name %></h3>
   <p class="text-gray-700 whitespace-pre-line"><%= simple_format(comment.body) %></p>
 
+  <!-- ログインユーザーかつ自分の投稿であれば表示 -->
   <% if current_user && current_user.own?(comment) %>
     <div class="flex justify-end space-x-4 mt-2">
       <%= link_to edit_comment_path(comment), data: { turbo_stream: true }, class: "text-blue-600 hover:underline" do %>

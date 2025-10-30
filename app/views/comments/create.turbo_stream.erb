@@ -1,11 +1,14 @@
 <% if @comment.errors.present? %>
+  <!-- エラー時にはフォームがそのまま表示 -->
   <%= turbo_stream.replace "comment-form" do %>
     <%= render 'comments/form', comment: @comment, post: @comment.post %>
   <% end %>
 <% else %>
+  <!-- 新しいコメントを追加 -->
   <%= turbo_stream.prepend "table-comment" do %>
     <%= render 'comments/comment', comment: @comment %>
   <% end %>
+  <!-- 空のフォーム -->
   <%= turbo_stream.replace "comment-form" do %>
     <%= render 'comments/form', comment: Comment.new, post: @comment.post %>
   <% end %>

@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-# サブモジュールにreset_passwordを追加
+# サブモジュールにreset_password,external(外部認証)を追加
 Rails.application.config.sorcery.submodules = [ :reset_password, :external ]
 
 # Here you can configure each submodule's features.
@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
-  #
+  # 外部認証google指定
   config.external_providers = %i[google]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -162,7 +162,7 @@ Rails.application.config.sorcery.configure do |config|
   # credentials.ymlから情報を取得
   config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
-  # API設定で承認済みのリダイレクトURIとして登録したurlを設定
+  # API設定で承認済みのリダイレクトURIとして登録したurlを設定,userモデルと紐付け
   config.google.callback_url = Settings.sorcery[:google_callback_url]
   config.google.user_info_mapping = { email: "email", name: "name" }
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"

@@ -6,6 +6,7 @@ export default class extends Controller {
 
   // メニュー外をクリックしたら閉じる（オプション）
   connect() {
+    // thisを今のオブジェクトに固定
     this.closeOnClickOutside = this.closeOnClickOutside.bind(this)
   }
 

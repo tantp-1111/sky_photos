@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
+    # ページネーションpost16個まで表示
     @posts = Post.includes(:user).order(created_at: :desc).page(params[:page]).per(16)
   end
 
@@ -49,20 +50,16 @@ class PostsController < ApplicationController
     @bookmark_posts = current_user.bookmark_posts
   end
 
+  # エモカウンター
   def emo_reactions
     @post = Post.find(params[:id])
     @post.emo_count += 1
 
     if @post.save
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to post_path(@post) }
-      end
+      # emo_reactions.turbo_stream.erb呼ばれる
     else
-      respond_to do |format|
-        format.turbo_stream { render_error_turbo_stream }
-        format.html { redirect_to post_path(@post), danger: t("defaults.flash_message.not_updated", item: Post.model_name.human) }
-      end
+      # errorレスポンス送る。下のprivateに定義
+      render_error_turbo_stream
     end
   end
 

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # TailwindCSSはフラッシュメッセージスタイル用意していないため定義
   def flash_message_class(message_type)
     case message_type
     when "success"
@@ -14,40 +15,38 @@ module ApplicationHelper
     end
   end
 
+  # タイトル動的表示
   def page_title(title = "")
     base_title = "SkyPhotos"
     title.present? ? "#{title} | #{base_title}" : base_title
   end
 
-  def show_meta_tags
-    assign_meta_tags if display_meta_tags.blank?
-    display_meta_tags
-  end
-
+  # メタタグ,動的OGP
   def default_meta_tags
-  {
-    site: "SkyPhotos",
-    title: "SkyPhotos",
-    reverse: true,
-    charset: "utf-8",
-    description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」",
-    keywords: "空, 写真, エモい, sky, photos, 共有",
-    og: {
-      site_name: :site,
-      title: :title,
-      description: :description,
-      type: "website",
-      url: request.original_url,
-      image: ogp_image_url,
-      locale: "ja-JP"
-    },
-    twitter: {
-      card: "summary_large_image",
-      image: ogp_image_url
+    {
+      site: "SkyPhotos",
+      title: "SkyPhotos",
+      reverse: true,
+      charset: "utf-8",
+      description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」",
+      keywords: "空, 写真, エモい, sky, photos, 共有",
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: "website",
+        url: request.original_url,
+        image: ogp_image_url,
+        locale: "ja-JP"
+      },
+      twitter: {
+        card: "summary_large_image",
+        image: ogp_image_url
+      }
     }
-  }
   end
 
+  # 動的OGP画像,cloudinaryに保存された画像引っ張ってくる
   def ogp_image_url
     if @post&.id
       public_id = @post.image.key
