@@ -73,7 +73,7 @@ gem "image_processing", ">= 1.2"
 gem "kaminari", "1.2.2"
 
 # 定数管理
-gem "config", "~> 4.2.0"
+gem "config", "~> 5.6.1"
 
 gem "dotenv-rails"
 
