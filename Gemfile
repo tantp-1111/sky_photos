@@ -66,7 +66,7 @@ gem "tailwindcss-rails"
 
 gem "tailwindcss-ruby", "3.4.17"
 
-# cloudinary実装時に導入
+# activestorage実装時に導入
 gem "image_processing", ">= 1.2"
 
 # ページネーション
@@ -89,3 +89,6 @@ gem "cancancan"
 
 # メタタグ管理
 gem "meta-tags"
+
+# 画像処理ライブラリ
+gem "ruby-vips"

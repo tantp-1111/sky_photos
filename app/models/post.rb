@@ -27,6 +27,6 @@ class Post < ApplicationRecord
   # サムネイル表示用メソッド
   def image_as_thumbnail
     return unless image.content_type.in?(%w[image/jpeg image/jpg image/png])
-    image.variant(resize_to_limit: [ 400, 400 ]).processed
+    image.variant(resize_to_limit: [ 400, 400 ])
   end
 end
