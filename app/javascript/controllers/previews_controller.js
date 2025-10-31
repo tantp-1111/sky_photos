@@ -1,55 +1,93 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  // ターゲットの定義
   static targets = ["input", "preview", "image"]
-  // デバッグ用のログ出力
+
   connect() {
     console.log("Preview controller connected")
   }
 
-  preview(event) {
+  async preview(event) {
     const file = event.target.files[0]
     const maxSizeInBytes = 10 * 1024 * 1024 // 10MB
     const validTypes = ["image/jpeg", "image/jpg", "image/png"]
 
-    // MIMEタイプのチェック
     if (!validTypes.includes(file.type)) {
       alert("JPEG、JPG、PNG形式のファイルを選択してください。")
-      // 不正なファイル形式の場合のアラート表示
       this.removeImage()
       return
     }
-    // ファイルサイズのチェック
-    if (file.size < maxSizeInBytes ) {
-      const reader = new FileReader()
-      //readerをfilereaderオブジェクトとして定義
-      reader.readAsDataURL(file)
-      // ファイルをデータURLとして読み込む
-      reader.onload = (e) => {
-        // readerにファイル読み込み完了時の処理を定義
-        this.imageTarget.src = e.target.result
-        // 読み込んだデータをプレビュー画像のsrcに設定,e.targetでイベントを発生させたFilereaderオブジェクトを取得
-        this.previewTarget.classList.remove("hidden")
-        // プレビューエリアのhiddenクラスを削除して表示
-      }
-    } else {
+
+    if (file.size > maxSizeInBytes) {
       alert("ファイルサイズは10MB以下にしてください。")
-      // ファイルが大きすぎる場合のアラート表示
       this.removeImage()
+      return
+    }
+
+    // 圧縮・リサイズ処理
+    const compressedFile = await this.compressImage(file, 1024, 0.8) // 最大1024px, JPEG圧縮率80%
+    this.updatePreview(compressedFile)
+    
+    // フォームにセットするため input の files を置き換える
+    const dataTransfer = new DataTransfer()
+    dataTransfer.items.add(compressedFile)
+    this.inputTarget.files = dataTransfer.files
+  }
+
+  // Canvas で画像をリサイズ＆圧縮
+  compressImage(file, maxSize, quality) {
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.onload = () => {
+        let [newWidth, newHeight] = [img.width, img.height]
+
+        // 縦横比を維持して最大サイズに収める
+        if (newWidth > newHeight && newWidth > maxSize) {
+          newHeight = (maxSize / newWidth) * newHeight
+          newWidth = maxSize
+        } else if (newHeight > maxSize) {
+          newWidth = (maxSize / newHeight) * newWidth
+          newHeight = maxSize
+        }
+
+        const canvas = document.createElement("canvas")
+        canvas.width = newWidth
+        canvas.height = newHeight
+        const ctx = canvas.getContext("2d")
+        ctx.drawImage(img, 0, 0, newWidth, newHeight)
+
+        canvas.toBlob(
+          (blob) => {
+            // 元のファイル名と MIME タイプを維持した Blob を生成
+            const compressedFile = new File([blob], file.name, { type: file.type })
+            resolve(compressedFile)
+          },
+          file.type,
+          quality
+        )
+      }
+      img.onerror = reject
+      img.src = URL.createObjectURL(file)
+    })
+  }
+
+  // プレビュー更新
+  updatePreview(file) {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = (e) => {
+      this.imageTarget.src = e.target.result
+      this.previewTarget.classList.remove("hidden")
     }
   }
 
-  // 画像削除処理
   removeImage() {
     this.inputTarget.value = null
     this.imageTarget.src = null
     this.previewTarget.classList.add("hidden")
   }
 
-  // デバッグ用
   disconnect() {
-    this.revokeCurrentObjectURL()
     console.log("Preview controller disconnected")
   }
 }
