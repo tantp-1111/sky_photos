@@ -27,8 +27,8 @@ export default class extends Controller {
     // 圧縮・リサイズ処理
     const compressedFile = await this.compressImage(file, 1024, 0.8) // 最大1024px, JPEG圧縮率80%
     this.updatePreview(compressedFile)
-    
-    // フォームにセットするため input の files を置き換える
+
+    // フォームにセットするためinputのfilesを置き換える
     const dataTransfer = new DataTransfer()
     dataTransfer.items.add(compressedFile)
     this.inputTarget.files = dataTransfer.files
@@ -58,7 +58,7 @@ export default class extends Controller {
 
         canvas.toBlob(
           (blob) => {
-            // 元のファイル名と MIME タイプを維持した Blob を生成
+            // 元のファイル名とMIMEタイプを維持したBlobを生成
             const compressedFile = new File([blob], file.name, { type: file.type })
             resolve(compressedFile)
           },
