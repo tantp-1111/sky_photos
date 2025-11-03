@@ -4,6 +4,6 @@
   </li>
 <% else %>
   <li class="page">
-    <%= link_to page, url, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white border border-gray-300 text-xs text-gray-800 font-bold text-center !leading-none hover:bg-gray-50 transition-colors" %>
+    <%= link_to page, url_for(page: page), rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white border border-gray-300 text-xs text-gray-800 font-bold text-center !leading-none hover:bg-gray-50 transition-colors" %>
   </li>
 <% end %>
