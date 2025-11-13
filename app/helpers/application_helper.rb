@@ -18,22 +18,25 @@ module ApplicationHelper
   # タイトル動的表示
   def page_title(title = "")
     base_title = "SkyPhotos"
-    title.present? ? "#{title} | #{base_title}" : base_title
+    title.present? ? "#{title}" : ""
   end
 
   # メタタグ,動的OGP
   def default_meta_tags
+    base_title = "SkyPhotos"
+    title = content_for?(:title) ? content_for(:title) : ""
+    description = "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」"
     {
-      site: "SkyPhotos",
-      title: "SkyPhotos",
+      site: base_title,
+      title: page_title(title),
       reverse: true,
       charset: "utf-8",
-      description: "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」",
+      description: description,
       keywords: "空, 写真, エモい, sky, photos, 共有",
       og: {
-        site_name: :site,
-        title: :title,
-        description: :description,
+        site_name: base_title,
+        title: page_title(title),
+        description: description,
         type: "website",
         url: request.original_url,
         image: ogp_image_url,
