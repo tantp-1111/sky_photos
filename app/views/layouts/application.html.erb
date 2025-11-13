@@ -6,6 +6,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RD3ECXCZ4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RD3ECXCZ4S');
+    </script>
     <!-- テーマカラー設定でスマホでのアプリ外背景色指定 -->
     <meta name="theme-color" content="#1f2937">
     <!-- メタタグ設定 -->
