@@ -15,12 +15,6 @@ module ApplicationHelper
     end
   end
 
-  # タイトル動的表示
-  def page_title(title = "")
-    base_title = "SkyPhotos"
-    title.present? ? "#{title}" : ""
-  end
-
   # メタタグ,動的OGP
   def default_meta_tags
     base_title = "SkyPhotos"
@@ -28,14 +22,14 @@ module ApplicationHelper
     description = "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」"
     {
       site: base_title,
-      title: page_title(title),
+      title: title.present? ? "#{title}" : "",
       reverse: true,
       charset: "utf-8",
       description: description,
       keywords: "空, 写真, エモい, sky, photos, 共有",
       og: {
         site_name: base_title,
-        title: page_title(title),
+        title: title.present? ? "#{title}" : "",
         description: description,
         type: "website",
         url: request.original_url,
