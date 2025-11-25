@@ -22,14 +22,14 @@ module ApplicationHelper
     description = "ふと見上げた空を共有しよう。空の写真を投稿できるアプリ「Skyphotos」"
     {
       site: base_title,
-      title: title.present? ? "#{title}" : "",
+      title: title,
       reverse: true,
       charset: "utf-8",
       description: description,
       keywords: "空, 写真, エモい, sky, photos, 共有",
       og: {
         site_name: base_title,
-        title: title.present? ? "#{title}" : "",
+        title: title,
         description: description,
         type: "website",
         url: request.original_url,
