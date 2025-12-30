@@ -26,7 +26,14 @@ class Post < ApplicationRecord
 
   # サムネイル表示用メソッド
   def image_as_thumbnail
+    return unless image.attached?
     return unless image.content_type.in?(%w[image/jpeg image/jpg image/png])
     image.variant(resize_to_limit: [ 400, 400 ])
   end
+
+  # 画像表示用メソッド
+  def display_image
+    image_as_thumbnail || "place_holder.png"
+  end
+
 end

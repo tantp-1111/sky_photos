@@ -3,12 +3,10 @@ class PostsController < ApplicationController
 
   def index
     # ページネーションpost16個まで表示
-    @posts = Post.includes(:user, :bookmarks, image_attachment: :blob)
-               .order(created_at: :desc)
-               .page(params[:page])
-               .per(16)
-    # N+1問題発生する書き方
-    # @posts = Post.includes(:user).order(created_at: :desc).page(params[:page]).per(16)
+    @posts = Post.includes(:user, image_attachment: :blob)
+      .order(created_at: :desc)
+      .page(params[:page])
+      .per(16)
     # 現在のユーザーがどの投稿をお気に入り（bookmark）しているかをまとめて取得
     if current_user
       @user_bookmarked_post_ids = current_user.bookmarks.where(post_id: @posts.pluck(:id)).pluck(:post_id)
