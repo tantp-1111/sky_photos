@@ -35,5 +35,4 @@ class Post < ApplicationRecord
   def display_image
     image_as_thumbnail || "place_holder.png"
   end
-
 end
