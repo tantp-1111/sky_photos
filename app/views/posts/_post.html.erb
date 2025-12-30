@@ -8,11 +8,7 @@
 
   <!-- 画像 -->
   <div class="relative w-full h-64">
-    <% if post.image.attached? && post.image.content_type.in?(%w[image/jpeg image/png]) %>
-      <%= image_tag(post.image_as_thumbnail, class: "w-full h-full object-cover") %>
-    <% else %>
-      <%= image_tag "place_holder.png", class: "w-full h-full object-cover" %>
-    <% end %>
+    <%= image_tag post.display_image, class: "w-full h-full object-cover" %>
   </div>
 
   <!-- テキストオーバーレイ(ホバーで出てくる部分)stimulusで実装 -->
