@@ -4,7 +4,7 @@
     <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :body %>
       <%= f.text_area :body, class: "w-full border rounded p-2 mb-3 focus:outline-none focus:ring focus:ring-blue-300", row: "4", placeholder: Comment.human_attribute_name(:body) %>
-      <%= f.submit t('defaults.post'), class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+      <%= f.submit t('defaults.post'), class: "bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700" %>
     <% end %>
   </div>
 </div>
