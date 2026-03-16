@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
     )
     # views/user_mailer/reset_password_email.html.erbを使用するにあたり、変数頭の@を削除
 
-    client.emails.send(
+    client.emails.create(
       from: "onboarding@resend.dev", # resendが提供するメールアドレスを使用
       to: user.email,
       subject: I18n.t("defaults.password_reset"),
