@@ -94,3 +94,6 @@ gem "meta-tags"
 
 # 画像処理ライブラリ
 gem "ruby-vips"
+
+# Resend API
+gem "resend"

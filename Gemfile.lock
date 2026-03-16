@@ -184,6 +184,10 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
+    httparty (0.24.2)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     image_processing (1.14.0)
@@ -369,6 +373,8 @@ GEM
     regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
+    resend (1.0.1)
+      httparty (>= 0.21.0)
     rexml (3.4.4)
     rubocop (1.80.2)
       json (~> 2.3)
@@ -505,6 +511,7 @@ DEPENDENCIES
   rails (~> 7.2.1)
   rails-i18n (~> 7.0.0)
   rails_admin (~> 3.0)
+  resend
   rubocop-rails-omakase
   ruby-vips
   sassc-rails
