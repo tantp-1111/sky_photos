@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     reset_url = edit_password_reset_url(user.reset_password_token)
 
     # initializerで設定したResendクライアントを使用
-    client = Resend::Client.new
+    client = Resend::Client.new(ENV["RESEND_API_KEY"])
 
     html = ApplicationController.render(
       template: "user_mailer/reset_password_email",
