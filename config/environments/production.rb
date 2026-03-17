@@ -82,17 +82,17 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   # らんてくんに言われて追加
   config.action_mailer.perform_deliveries = true
-  # パスワードリセットメールの送信元情報
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              "smtp.gmail.com",
-    port:                 587,
-    domain:               "sky-photos.onrender.com",
-    user_name:            ENV["GMAIL_USERNAME"],
-    password:             ENV["GMAIL_PASSWORD"],
-    authentication:       "plain",
-    enable_starttls_auto: true
-  }
+  # パスワードリセットメールの送信元情報(smtpの設定)
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address:              "smtp.gmail.com",
+  #   port:                 587,
+  #   domain:               "sky-photos.onrender.com",
+  #   user_name:            ENV["GMAIL_USERNAME"],
+  #   password:             ENV["GMAIL_PASSWORD"],
+  #   authentication:       "plain",
+  #   enable_starttls_auto: true
+  #}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -109,10 +109,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  # config.hosts = [
-  #   "example.com",     # Allow requests from example.com
-  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
-  # ]
+  config.hosts << "skyphotos.rest"
+  config.hosts << "www.skyphotos.rest"
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
