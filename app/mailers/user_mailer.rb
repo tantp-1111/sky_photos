@@ -2,11 +2,12 @@ class UserMailer < ApplicationMailer
   def reset_password_email(user)
     return if Rails.env.test?
     # パスワードリセット用のURLを生成
-    reset_url = edit_password_reset_url(user.reset_password_token)
+    @user = user
+    @url  = edit_password_reset_url(user.reset_password_token)
 
-    html = ApplicationController.render(
+    html = render_to_string(
       template: "user_mailer/reset_password_email",
-      assigns: { user: user, url: reset_url }
+      layout: "mailer"
     )
 
     params = {
