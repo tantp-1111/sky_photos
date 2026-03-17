@@ -8,10 +8,9 @@ class UserMailer < ApplicationMailer
       template: "user_mailer/reset_password_email",
       assigns: { user: user, url: reset_url }
     )
-    # views/user_mailer/reset_password_email.html.erbを使用するにあたり、変数頭の@を削除
 
     params = {
-      from: "onboarding@resend.dev", # resendが提供するメールアドレスを使用
+      from: "no-reply@skyphotos.rest", # 送信元のメールアドレス
       to: user.email,
       subject: I18n.t("defaults.password_reset"),
       html: html
