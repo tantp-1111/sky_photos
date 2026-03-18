@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @url  = edit_password_reset_url(user.reset_password_token)
 
-    mail( to: user.email, subject: I18n.t("defaults.password_reset") )
+    mail(to: user.email, subject: I18n.t("defaults.password_reset"))
   end
   # default from: "tantpapp@gmail.com"
   # 送信元のメールアドレス
