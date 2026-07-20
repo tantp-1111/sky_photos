@@ -84,7 +84,7 @@ GEM
     benchmark (0.4.1)
     bigdecimal (3.3.1)
     bindex (0.8.1)
-    bootsnap (1.21.1)
+    bootsnap (1.24.6)
       msgpack (~> 1.2)
     brakeman (8.0.4)
       racc
@@ -213,7 +213,7 @@ GEM
       logger
     mini_mime (1.1.5)
     minitest (5.25.5)
-    msgpack (1.8.0)
+    msgpack (1.8.3)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
     multipart-post (2.4.1)
