@@ -64,6 +64,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Rails 7.2 is not compatible with minitest 6 (test_unit line filtering breaks)
+gem "minitest", "< 6"
+
 gem "tailwindcss-rails"
 
 gem "tailwindcss-ruby", "3.4.17"
