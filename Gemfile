@@ -65,7 +65,7 @@ group :test do
 end
 
 # Rails 7.2 is not compatible with minitest 6 (test_unit line filtering breaks)
-gem "minitest", "< 6"
+gem "minitest", "< 7"
 
 gem "tailwindcss-rails"
 
