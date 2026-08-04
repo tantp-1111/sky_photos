@@ -69,7 +69,7 @@ gem "minitest", "< 6"
 
 gem "tailwindcss-rails"
 
-gem "tailwindcss-ruby", "3.4.17"
+gem "tailwindcss-ruby", "4.3.3"
 
 # activestorage実装時に導入
 gem "image_processing", ">= 1.2"
